@@ -43,6 +43,13 @@ function create() {
     addObstacle(this);
   }
 
+  // Cria novos obstáculos a cada 800ms
+  this.time.addEvent({
+    delay: 800,               // tempo em ms (0.8s)
+    callback: () => addObstacle(this),
+    loop: true
+  });
+
   // Colisão entre jogador e obstáculos
   this.physics.add.overlap(player, obstacles, hitObstacle, null, this);
 
