@@ -68,14 +68,20 @@ function update() {
   if (cursors.up.isDown) player.body.setVelocityY(-speed);
   if (cursors.down.isDown) player.body.setVelocityY(speed);
 
+  // 1. Array para obstáculos que saíram da tela
+  let toRemove = [];
+
   // Move obstáculos para baixo
   obstacles.children.iterate((obs) => {
     obs.y += 4;
     if (obs.y > 650) {
-      // Remove obstáculo que saiu da tela e adiciona um novo
-      obs.destroy();
-      addObstacle(this.scene);
+      toRemove.push(obs);
     }
+  });
+
+  // 2. Remover/adicionar obstáculos FORA do loop de iteração
+  toRemove.forEach((obs) => {
+    obs.destroy();
   });
 }
 
