@@ -6,7 +6,7 @@ const config = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 600 }, // gravidade
+      //gravity: { y: 600 }, // gravidade
       debug: true          // mostra hitboxes
     }
   },
@@ -23,7 +23,9 @@ const game = new Phaser.Game(config);
 // Declara variáveis globais para guardar referências ao personagem, aos controles e ao chão.
 let player;
 let cursors;
-let ground;
+//let ground;
+let obstacles;
+let speed = 200; // velocidade do jogador
 
 function preload() {
   // Nada para carregar por enquanto
@@ -31,17 +33,32 @@ function preload() {
 
 function create() {
   // Criando o chão (um retângulo largo)
-  ground = this.add.rectangle(400, 580, 800, 40, 0x006400);
-  this.physics.add.existing(ground, true); // true = estático
+  //ground = this.add.rectangle(400, 580, 800, 40, 0x006400);
+  //this.physics.add.existing(ground, true); // true = estático
 
   // Criando o personagem (retângulo pequeno)
-  player = this.add.rectangle(100, 500, 40, 60, 0x3498db);
-  this.physics.add.existing(player);
+  //player = this.add.rectangle(100, 500, 40, 60, 0x3498db);
+  //this.physics.add.existing(player);
+  //player.body.setCollideWorldBounds(true); // Não deixa sair da tela
 
+  // Criar jogador (círculo azul)
+  player = this.add.rectangle(400, 500, 40, 40, 0x3498db);
+  this.physics.add.existing(player);
   player.body.setCollideWorldBounds(true); // Não deixa sair da tela
 
   // Colisão entre personagem e chão
-  this.physics.add.collider(player, ground);
+  //this.physics.add.collider(player, ground);
+
+  // Criar grupo de obstáculos
+  obstacles = this.physics.add.group();
+
+  // Adiciona alguns obstáculos iniciais
+  for (let i = 0; i < 5; i++) {
+    addObstacle(this);
+  }
+
+  // Colisão entre jogador e obstáculos
+  this.physics.add.overlap(player, obstacles, hitObstacle, null, this);
 
   // Controles do teclado
   cursors = this.input.keyboard.createCursorKeys();
@@ -49,6 +66,7 @@ function create() {
 
 // LOOP PRINCIPAL
 // Função chamada toda vez que um novo quadro (frame) do jogo é desenhado (~60 vezes por segundo)
+/*
 function update() {
   // Movimentação lateral
   if (cursors.left.isDown) {
@@ -63,4 +81,40 @@ function update() {
   if (cursors.up.isDown && player.body.touching.down) {
     player.body.setVelocityY(-350);   // velocidade negativa para cima
   }
+}
+*/
+
+function update() {
+  // Movimento do jogador
+  player.body.setVelocity(0);
+
+  if (cursors.left.isDown) player.body.setVelocityX(-speed);
+  if (cursors.right.isDown) player.body.setVelocityX(speed);
+  if (cursors.up.isDown) player.body.setVelocityY(-speed);
+  if (cursors.down.isDown) player.body.setVelocityY(speed);
+
+  // Move obstáculos para baixo
+  obstacles.children.iterate((obs) => {
+    obs.y += 4;
+    if (obs.y > 650) {
+      // Remove obstáculo que saiu da tela e adiciona um novo
+      obs.destroy();
+      addObstacle(this.scene);
+    }
+  });
+}
+
+function addObstacle(scene) {
+  // Obstáculo é um retângulo vermelho, posição aleatória no topo
+  const x = Phaser.Math.Between(50, 750);
+  const obs = scene.add.rectangle(x, -30, 60, 30, 0xff3333);
+  scene.physics.add.existing(obs);
+  obs.body.setImmovable(true);
+  obstacles.add(obs);
+}
+
+function hitObstacle(player, obs) {
+  player.setFillStyle(0xff0000); // Fica vermelho ao colidir
+  // Você pode pausar o jogo, mostrar mensagem, etc.
+  // Exemplo: this.scene.pause();
 }
