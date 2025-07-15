@@ -58,6 +58,7 @@ Tags e Releases
 - Tags e releases são boas para marcar versões que você gostou e quer guardar para voltar fácil.
 - Exemplo: depois que gostar de um protótipo, faz um `git tag v0.1-topdown` e continua explorando novas ideias.
 - Uma tag é só um marcador de commit (não depende do branch).
+- Use nomes diferentes para branch e tag sempre que possível!
 ```sh
 git tag v0.1-side-scroller
 git push --tags   # Enviar todas as tags que criou localmente
