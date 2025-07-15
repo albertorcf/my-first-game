@@ -10,15 +10,17 @@ const config = {
       debug: true          // mostra hitboxes
     }
   },
-  scene: {
-    preload,
-    create,
-    update
+  scene: {    // Define os três métodos principais da cena do jogo
+    preload,  // Carrega assets (imagens, sons, etc).
+    create,   // Cria e inicializa objetos do jogo.
+    update    // Executa a lógica do jogo a cada quadro (frame).
   }
 };
 
+// Cria uma nova instância do jogo Phaser usando a configuração acima.
 const game = new Phaser.Game(config);
 
+// Declara variáveis globais para guardar referências ao personagem, aos controles e ao chão.
 let player;
 let cursors;
 let ground;
@@ -45,6 +47,8 @@ function create() {
   cursors = this.input.keyboard.createCursorKeys();
 }
 
+// LOOP PRINCIPAL
+// Função chamada toda vez que um novo quadro (frame) do jogo é desenhado (~60 vezes por segundo)
 function update() {
   // Movimentação lateral
   if (cursors.left.isDown) {
@@ -57,6 +61,6 @@ function update() {
 
   // Pulo (só se estiver tocando o chão)
   if (cursors.up.isDown && player.body.touching.down) {
-    player.body.setVelocityY(-350);
+    player.body.setVelocityY(-350);   // velocidade negativa para cima
   }
 }
