@@ -59,6 +59,9 @@ Tags e Releases
 - Exemplo: depois que gostar de um protótipo, faz um `git tag v0.1-topdown` e continua explorando novas ideias.
 - Uma tag é só um marcador de commit (não depende do branch).
 ```sh
+git tag v0.1-side-scroller
+git push --tags   # Enviar todas as tags que criou localmente
+
 git tag   # Ver as tags
 git checkout v0.1-topdown   # Voltar para uma tag específica
 ```
