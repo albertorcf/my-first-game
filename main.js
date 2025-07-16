@@ -26,6 +26,10 @@ let obstacles;
 let bonus;
 let speed = 200; // velocidade do jogador
 
+// Flags de movimento via botão
+let moveLeft = false;
+let moveRight = false;
+
 function preload() {
   // Nada para carregar por enquanto
 }
@@ -35,6 +39,33 @@ function create() {
   player = this.add.rectangle(400, 500, 40, 40, 0x3498db);
   this.physics.add.existing(player);
   player.body.setCollideWorldBounds(true); // Não deixa sair da tela
+
+
+  // Parâmetros do botão
+  const btnSize = 70;
+  const yBtn = game.config.height - btnSize * 1.2;
+
+  // Botão Esquerda
+  const btnLeft = this.add.rectangle(btnSize, yBtn, btnSize, btnSize, 0xaaaaaa)
+    .setOrigin(0.5)
+    .setInteractive();
+  this.add.text(btnSize, yBtn, "←", { font: "32px Arial", color: "#222" }).setOrigin(0.5);
+
+  // Botão Direita
+  const btnRight = this.add.rectangle(game.config.width - btnSize, yBtn, btnSize, btnSize, 0xaaaaaa)
+    .setOrigin(0.5)
+    .setInteractive();
+  this.add.text(game.config.width - btnSize, yBtn, "→", { font: "32px Arial", color: "#222" }).setOrigin(0.5);
+
+  // Listeners para os botões (touch/click)
+  btnLeft.on('pointerdown', () => { moveLeft = true; });
+  btnLeft.on('pointerup', () => { moveLeft = false; });
+  btnLeft.on('pointerout', () => { moveLeft = false; }); // Caso o dedo/cursor saia do botão
+
+  btnRight.on('pointerdown', () => { moveRight = true; });
+  btnRight.on('pointerup', () => { moveRight = false; });
+  btnRight.on('pointerout', () => { moveRight = false; });
+
 
   // Criar grupo de obstáculos
   obstacles = this.physics.add.group();
@@ -74,8 +105,8 @@ function update() {
   // Movimento do jogador
   player.body.setVelocity(0);
 
-  if (cursors.left.isDown) player.body.setVelocityX(-speed);
-  if (cursors.right.isDown) player.body.setVelocityX(speed);
+  if (cursors.left.isDown || moveLeft) player.body.setVelocityX(-speed);
+  if (cursors.right.isDown || moveRight) player.body.setVelocityX(speed);
   if (cursors.up.isDown) player.body.setVelocityY(-speed);
   if (cursors.down.isDown) player.body.setVelocityY(speed);
 
