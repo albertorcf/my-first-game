@@ -1,9 +1,43 @@
 # my-first-game
 Meu primeiro game!
 
+- [ToDo](#todo)
 - [Links](#links)
 - [Notas](#notas)
   - [Branches Git](#branches-git)
+
+
+# ToDo
+
+📌 Pendências
+- Implementar sistema de pontuação
+- Adicionar sistema de vidas
+- Criar níveis de dificuldade (ex: aumentar velocidade dos obstáculos com o tempo)
+- Adicionar “power-ups” e armas especiais (bazuca, lançador de plasma, etc)
+- Implementar sprites e/ou animações no lugar dos retângulos
+- Adicionar sons de efeitos e música de fundo
+- Adicionar tela de início e tela de game over
+- Publicar versão jogável online (GitHub Pages ou similar)
+- Refatorar código para facilitar adição de novos obstáculos e bônus
+- Organizar o projeto em múltiplos arquivos/módulos para facilitar manutenção
+
+🚧 **Lista de obstáculos (urbanos caóticos 😁)**
+- Buracos na calçada
+- Motos trafegando na calçada na contra-mão
+- Motos surgindo do nada e vindo pra cima de você
+- Cocô de cachorro
+- Pedestres ocupando quase toda a calçada com um, dois ou até três cachorros
+- Motos e carros estacionados na calçada
+
+🎁 **Lista de bônus**
+- Dose extra de paciência (retângulo escrito "paciência")
+- Dose extra de bom humor (retângulo escrito "humor")
+
+💡 **Regras e ideias extras**
+- Ao colidir com obstáculos, personagem fica vermelho (e pode perder ponto/vida)
+- Ao colidir com bônus, personagem fica verde (e pode ganhar pontos ou “força extra”)
+- Obstáculos e bônus aparecem de forma aleatória
+- Possibilidade de ganhar bônus consecutivos para combos
 
 
 # Links
