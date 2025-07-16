@@ -1,8 +1,8 @@
 const GAME_VERSION = "0.3.4-sprites"; // Mude manualmente a cada atualização
 
-// ====================
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // CONFIGURAÇÃO PRINCIPAL DO JOGO (RESPONSIVO)
-// ====================
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 // Tamanho base (proporção 9:16, mobile first)
 const BASE_WIDTH = 540;
@@ -16,7 +16,7 @@ const config = {
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true // mostra hitboxes
+      //debug: true // mostra hitboxes
     }
   },
   scene: {    // Define os três métodos principais da cena do jogo
@@ -138,9 +138,9 @@ function create() {
   bonus = this.physics.add.group();
 
   // Adiciona alguns obstáculos iniciais
-  for (let i = 0; i < 5; i++) {
-    addObstacle(this);
-  }
+  //for (let i = 0; i < 5; i++) {
+  //  addObstacle(this);
+  //}
 
   // Cria novos obstáculos a cada 800ms
   this.time.addEvent({
@@ -155,19 +155,17 @@ function create() {
     loop: true
   });
 
-  // ====================
+  // ━━━━━━━━━━━━━━━━━━━━
   // COLISÕES
-  // ====================
-
+  // ━━━━━━━━━━━━━━━━━━━━
   // Colisão entre jogador e obstáculos
   this.physics.add.overlap(player, obstacles, hitObstacle, null, this);
   // Colisão entre jogador e bônus
   this.physics.add.overlap(player, bonus, hitBonus, null, this);
 
-  // ====================
+  // ━━━━━━━━━━━━━━━━━━━━
   // CONTROLES DO TECLADO
-  // ====================
-
+  // ━━━━━━━━━━━━━━━━━━━━
   cursors = this.input.keyboard.createCursorKeys();
 
   // Exibe o número da versão no canto inferior direito
@@ -235,7 +233,7 @@ function addObstacle(scene) {
   // Sorteia o tipo
   const tipos = [
     { key: 'jardineira', largura: 70, altura: 38 },
-    { key: 'buraco', largura: 70, altura: 70 }
+    { key: 'buraco', largura: 80, altura: 100 }
   ];
   const tipo = Phaser.Utils.Array.GetRandom(tipos);
 
