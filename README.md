@@ -119,3 +119,20 @@ Exemplo mais simples:
 
 **Com Phaser:**  
 Você pode criar os botões com `this.add.rectangle` ou `this.add.image` e adicionar eventos de pointer/touch.
+
+
+**Como testar no mobile**
+
+**Opção 1: Deploy no GitHub Pages**
+- Super fácil:
+  1. Faça push do seu código para o GitHub.
+  2. Vá em `Settings > Pages` no seu repositório.
+  3. Selecione a branch (`main` ou outra) e a pasta raiz (`/root`).
+  4. O GitHub gera um link do tipo:  
+  https://albertorcf.github.io/my-first-game/
+  5. Acesse esse link no navegador do seu celular!
+
+**Opção 2: Usar o IP do seu computador na LAN**
+- Rode um server local (ex: com `Live Server` no VS Code).
+- Descubra o IP do seu PC (ex: 192.168.0.10).
+- No celular, acesse: `http://192.168.0.10:5500` (ajustar ip e porta).
