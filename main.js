@@ -1,3 +1,5 @@
+const GAME_VERSION = "0.3.0"; // Mude manualmente a cada atualização
+
 // ====================
 // CONFIGURAÇÃO PRINCIPAL DO JOGO (RESPONSIVO)
 // ====================
@@ -51,10 +53,13 @@ function resizeGame() {
   // Aplica o tamanho visualmente, mantendo as coordenadas base no jogo
   canvas.style.width = width + 'px';
   canvas.style.height = height + 'px';
-  // Centraliza o canvas (opcional, deixa bonito)
-  canvas.style.display = "block";
-  canvas.style.margin = "auto";
+
+  // Centralização vertical extra: ajusta margin-top para centrar mesmo em browsers mobile bugados
+  canvas.style.position = "absolute";
+  canvas.style.left = `calc(50% - ${width / 2}px)`;
+  canvas.style.top = `calc(50% - ${height / 2}px)`;
 }
+
 window.addEventListener('resize', resizeGame);
 window.addEventListener('orientationchange', resizeGame);
 window.addEventListener('load', resizeGame);
@@ -163,6 +168,12 @@ function create() {
   // ====================
 
   cursors = this.input.keyboard.createCursorKeys();
+
+  // Exibe o número da versão no canto inferior direito
+  this.add.text(BASE_WIDTH - 10, BASE_HEIGHT - 10, "v" + GAME_VERSION, {
+    font: "16px Arial",
+    fill: "#fff"
+  }).setOrigin(1, 1); // Origem no canto inferior direito
 
   // Redimensiona ao criar a cena (garante ajuste ao abrir o jogo)
   resizeGame();

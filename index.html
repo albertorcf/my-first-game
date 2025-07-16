@@ -7,37 +7,22 @@
   <title>Andarilho - O Jogo</title>
   <script src="https://cdn.jsdelivr.net/npm/phaser@3.88.2/dist/phaser.js"></script>
   <style>
-    html,
+    canvas {
+      background: #222;
+      user-select: none;
+      position: absolute; /* agora o canvas é posicionado absoluto */
+      /* margin: auto;  // pode remover esta linha */
+      outline: none;
+    }
+
     body {
-      height: 100%;
+      /* Remova o display: flex, que não será mais necessário */
       margin: 0;
       padding: 0;
       background: #111;
-      overflow: hidden;
-      touch-action: none;
-    }
-
-    body {
-      /* Centraliza o canvas na tela em qualquer direção */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      min-width: 100vw;
       height: 100vh;
       width: 100vw;
-    }
-
-    canvas {
-      display: block;
-      margin: auto;
-      background: #222;
-      user-select: none;
-      -webkit-user-select: none;
-      -webkit-touch-callout: none;
-      -webkit-tap-highlight-color: transparent;
-      /* Remover eventuais bordas azuis em celulares */
-      outline: none;
+      overflow: hidden;
     }
   </style>
 </head>
