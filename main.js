@@ -157,4 +157,3 @@ function hitBonus(player, bonus) {
   bonus.destroy();
   // Você pode incrementar a pontuação ou efeito especial aqui!
 }
-

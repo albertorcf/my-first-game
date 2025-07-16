@@ -5,6 +5,7 @@ Meu primeiro game!
 - [Links](#links)
 - [Notas](#notas)
   - [Branches Git](#branches-git)
+  - [Responsividade](#responsividade)
 
 
 # ToDo
@@ -101,3 +102,20 @@ git tag   # Ver as tags
 git checkout v0.1-topdown   # Voltar para uma tag específica
 ```
 (Lembrando: isso coloca o repo em modo “detached HEAD”, ou seja, você não está em nenhum branch ativo. Só para referência/análise.)
+
+
+## Responsividade
+
+**2️⃣ Controles para Mobile (toque na tela)**
+
+Opções mais comuns:
+- **Botões virtuais:** Desenhar “setas” e “botão de tiro” na tela (overlay) e capturar toques.
+- **Gestos:** Arrastar o dedo (swipe) ou tocar para mover.
+- **Arrastar personagem diretamente:** Personagem segue o dedo.
+
+Exemplo mais simples:
+- Adicionar dois botões retangulares no canto inferior esquerdo/direito: ← e →
+- Quando o usuário toca, o personagem move para aquela direção.
+
+**Com Phaser:**  
+Você pode criar os botões com `this.add.rectangle` ou `this.add.image` e adicionar eventos de pointer/touch.
