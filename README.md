@@ -134,5 +134,7 @@ Você pode criar os botões com `this.add.rectangle` ou `this.add.image` e adici
 
 **Opção 2: Usar o IP do seu computador na LAN**
 - Rode um server local (ex: com `Live Server` no VS Code).
-- Descubra o IP do seu PC (ex: 192.168.0.10).
-- No celular, acesse: `http://192.168.0.10:5500` (ajustar ip e porta).
+- Instale a extensão `Live Server` no marketplace do VS Code (desenvolvedor: Ritwick Dey).
+- No **Explorer** (barra lateral esquerda), localize o index.html e clique com o botão direito: `Open with Live Server (Alt+L Alt+O)`
+- Descubra o IP do seu PC (ex: 192.168.1.181).
+- No celular, acesse: `http://192.168.1.181:5500` (ajustar ip e porta).

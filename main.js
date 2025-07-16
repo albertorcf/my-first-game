@@ -1,4 +1,4 @@
-const GAME_VERSION = "0.3.0"; // Mude manualmente a cada atualização
+const GAME_VERSION = "0.3.1"; // Mude manualmente a cada atualização
 
 // ====================
 // CONFIGURAÇÃO PRINCIPAL DO JOGO (RESPONSIVO)
