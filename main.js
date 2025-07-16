@@ -1,4 +1,4 @@
-const GAME_VERSION = "0.3.3-assets"; // Mude manualmente a cada atualização
+const GAME_VERSION = "0.3.4-sprites"; // Mude manualmente a cada atualização
 
 // ====================
 // CONFIGURAÇÃO PRINCIPAL DO JOGO (RESPONSIVO)
@@ -85,7 +85,8 @@ let moveRight = false;
 // ====================
 
 function preload() {
-  // Nada para carregar por enquanto
+  this.load.image('jardineira', 'assets/jardineira.png');
+  this.load.image('buraco', 'assets/buraco.png');
 }
 
 function create() {
@@ -224,16 +225,26 @@ function update() {
   });
 }
 
-// ====================
-// FUNÇÃO: ADICIONAR OBSTÁCULO
-// ====================
-
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ADICIONAR OBSTÁCULO
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 function addObstacle(scene) {
-  // Obstáculo é um retângulo vermelho, posição aleatória no topo (proporcional ao canvas base)
   const margin = 50;
   const x = Phaser.Math.Between(margin, BASE_WIDTH - margin);
-  const obs = scene.add.rectangle(x, -30, 70, 38, 0xff3333);
-  scene.physics.add.existing(obs);
+
+  // Sorteia o tipo
+  const tipos = [
+    { key: 'jardineira', largura: 70, altura: 38 },
+    { key: 'buraco', largura: 70, altura: 70 }
+  ];
+  const tipo = Phaser.Utils.Array.GetRandom(tipos);
+
+  // Adiciona o sprite do obstáculo
+  const obs = scene.physics.add.sprite(x, -30, tipo.key);
+
+  // **Aqui é onde você ajusta o tamanho do sprite**
+  obs.setDisplaySize(tipo.largura, tipo.altura); // redimensiona o sprite para tamanho compatível
+
   obs.body.setImmovable(true);
   obstacles.add(obs);
 }
