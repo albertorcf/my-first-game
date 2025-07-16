@@ -6,6 +6,7 @@ Meu primeiro game!
 - [Notas](#notas)
   - [Branches Git](#branches-git)
   - [Responsividade](#responsividade)
+  - [Como Converter SVG para PNG e Adicionar na Pasta de Assets](#como-converter-svg-para-png-e-adicionar-na-pasta-de-assets)
 
 
 # ToDo
@@ -138,3 +139,13 @@ Você pode criar os botões com `this.add.rectangle` ou `this.add.image` e adici
 - No **Explorer** (barra lateral esquerda), localize o index.html e clique com o botão direito: `Open with Live Server (Alt+L Alt+O)`
 - Descubra o IP do seu PC (ex: 192.168.1.181).
 - No celular, acesse: `http://192.168.1.181:5500` (ajustar ip e porta).
+
+
+## Como Converter SVG para PNG e Adicionar na Pasta de Assets
+
+Pedir para o ChatGPT gerar o SVG e gravar como SVG.
+
+Utilize um conversor online rápido e prático:
+- [svg2png.com](https://svg2png.com/)
+- [svgviewer.dev](https://www.svgviewer.dev/)
+- [cloudconvert.com/svg-to-png](https://cloudconvert.com/svg-to-png)

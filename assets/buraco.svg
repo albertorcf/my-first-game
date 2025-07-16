@@ -1,0 +1,7 @@
+<!-- buraco.svg -->
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="32" cy="52" rx="20" ry="8" fill="#333"></ellipse>
+  <ellipse cx="32" cy="54" rx="16" ry="5" fill="#111"></ellipse>
+  <ellipse cx="44" cy="54" rx="2" ry="1" fill="#666"></ellipse>
+  <ellipse cx="28" cy="56" rx="3" ry="1" fill="#444"></ellipse>
+</svg>
