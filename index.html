@@ -1,19 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
   <title>Andarilho - O Jogo</title>
+  <!-- Phaser CDN -->
   <script src="https://cdn.jsdelivr.net/npm/phaser@3.88.2/dist/phaser.js"></script>
   <style>
+    html,
     body {
+      /* Ocupa 100% da tela, sem scroll */
+      height: 100%;
       margin: 0;
+      padding: 0;
       background: #111;
+      overflow: hidden;
+      touch-action: none;
+      /* Evita scroll acidental em mobile */
+    }
+
+    body {
+      /* Centraliza tudo na vertical e horizontal */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
     }
 
     canvas {
       display: block;
-      margin: 0 auto;
+      margin: auto;
+      background: #222;
+      /* Fundo padrão do canvas */
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
     }
   </style>
 </head>
